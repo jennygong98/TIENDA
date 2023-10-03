@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- Listas -->
+<html>
+    <head>
+        <title>Tienda en linea</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="text-align: center; width:50%;margin:0 auto;">
+            <h1 > Ejemplo 6 </h1>
+            <p> Bienvenidos al curso de Web y Patrones</p>
+        </div>
+
+        <!-- "<ul>": Listas sin orden (desordenada), Los elementos se muestran 
+        hacia abajo. los elementos dentro de este bloque ya se trabaja con los 
+        "<li>"-->
+        <ul> 
+            <li> Item uno </li>
+            <li> Item dos </li>
+            <li> Item tres </li>
+            <li> </li>
+        </ul>
+
+        <!-- "<ol>": Listas ordenadas, le pone un orden a los elementos, con numero.
+        Dentro del bloque tambien tiene elementos "<li>" -->
+
+        <ol> 
+            <li> Item uno </li>
+            <li> Item dos </li>
+            <li> Item tres </li>
+            <li> Item tres </li>
+            <li> Item tres </li>
+            <li> Item tres </li>
+            <li> </li>
+        </ol>
+        <!-- Se le puede poner un atributo "type", se le puede poner una letra (nombrarla 
+        alfabeticamente) o un numero (lo hace con numeros), y si le ponemos una "i" lo 
+        hace con numeros romandos en minuscula o "i" para numeros romanos en mayuscula-->
+
+        <!-- Ejemplo 1 -->
+        `<ol type = "a"> 
+            <li> Item uno</li>
+            <li> Item dos</li>
+            <li> Item tres</li>
+            <li> Item tres</li>
+            <li> Item tres</li>
+            <li> Item tres</li>
+            <li> </li>
+        </ol>
+
+        <!-- Ejemplo 2 -->
+        <ol type = "i"> 
+            <li> Item uno</li>
+            <li> Item dos</li>
+            <li> Item tres</li>
+            <li> Item tres</li>
+            <li> Item tres</li>
+            <li> Item tres</li>
+            <li> </li>
+        </ol>
+
+        <!-- Ejemplo 3 -->
+        <ol type = "I"> 
+            <li> Item uno</li>
+            <li> Item dos</li>
+            <li> Item tres</li>
+            <li> Item cuatro </li>
+            <li> Item cinco </li>
+            <li> Item seis </li>
+            <li> </li>
+        </ol>
+
+        <!-- Listas anidadas: Ejemplo, tener una lista ordenada y dentros de ella
+        tener otra lista desordenada-->
+        <ol>
+            <li>    
+                <ul>
+                    <li> Elemento 1 </li>
+                    <li> 
+                        <ul>
+                            <li> Elemento 1 </li>
+                            <li> Elemento 2 </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li> Elemento externo </li>
+            <li> Elemento externo </li>
+        </ol>
+
+    </body>
+</html>

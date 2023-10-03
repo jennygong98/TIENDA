@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Formularios: Sirven para solicitar informacion al usuario. 
+Nos permite usar ciertos controles para pedir datos.-->
+<head>
+    <title> Tienda en linea </title>
+    <meta charset="UTF-8">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div style="text-align: center; width:50%;margin:0 auto;" id="encabezado">
+        <h1 > Ejemplo 9 </h1>
+        <p> Bienvenidos al curso de Web y Patrones</p>
+    </div>
+
+    <a href="#ejemplo8.html"> Atras </a>
+    <br>
+    <a href="#index.html"> Adelante </a>
+    <br>
+    <br>
+
+    <!-- Siempre inician con "<form>" y tiene varios atributos importantes:
+    - "action= "" ": Que/Cual accion en el servidor voy a ir cuando le de al boton
+    enviar. **Como todavia no tenemos implementado logico de JAVA que reciba 
+    ese formario, vamos a poner "#" que significa que no haga nada y que se quede ahi mismo
+    - "method"= Es el metodo html o http con el cual va a ser la peticion. 
+    Normalmente con los forms vamos a hacer peticiones mediante "POST" o "GET"
+        - "GET": envia los datos en URL
+        - "POST": envia los datos como una parte del body, pero que nos de error
+        por ahora.
+    -->
+
+    <form action="#" method="GET">
+        <!-- Normalmente se conforman de dos partes: 
+            - "<label>": Que es la etiqueta, le ponemos un nombre
+            - "<input>": Son los contenedores de entrada, con los que se puede
+            pedir los datos. Y tienen el atributo mas importante que es el "type=: que 
+            tiene diferente tipos que se pueden usar. con "name=" se utiliza para identificarlo, 
+            cuando se trabaja con bases de datos, siempre que se trabaja con inputs, ponerle el 
+            nombre de hacia donde va este campo. el "id" normalmente ponemos el mismo nombre del
+            "name"
+            ** La diferencia entre "name" y "id" es que el "name" se puede repetir
+            en mas de un elemento, mientras que el id no
+            ** Todos los elementos pueden tener un id
+            - "placeholder": Es el texto que se encuentra por debajo. 
+            - "size": Es el tamaño que queremos que se vea ("50" quiere decir 50 
+            caracteres).
+        -->
+
+        <label> Nombre </label>
+        <input type="text" name="nombre" id="nombre" placeholder="Digite su nombre"
+               size="50"/>
+        <br>
+        <label> Correo </label>
+        <input type="email" name="correo" id="correo" placeholder="Digite su correo"/>
+        <br>
+        <label> Password </label>
+        <input type="Password" name="Password" id="Password"/>
+        <!--El submit es del tipo mas importante, es un boton. Lo que hace es que 
+        cuando le demos al boton va a tomar todos los datos de los inputs que acabamos de crear 
+        (los de formulario) y se lo va a mandar a la accion que pongamos en "form action="#""
+        En este caso porque no tenemos accion (por el "#") lo que pasa al darle submit es que 
+        lo agrega al link-->
+        <br>
+        <input type="submit" value="Enviar"/>
+        
+</body>
+</html>

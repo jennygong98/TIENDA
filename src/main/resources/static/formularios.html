@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- Formularios
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section id="Contenido">
+            <h2> Ejemplo de Formularios y sus inputs </h2>
+            <article>
+                <form action="#" method="GET"> 
+                    <!-- BOTÓN 
+                    "value": Es el texto dentro del boton. 
+                    -->
+                    <label>button</label> - <input type="button" name="confirmar" 
+                                                   value="Confirmar"/>
+                    <br>
+
+                    <!-- CHECKBOX
+                    "checked": Es para que automaticamente aparezca con una opcion marcada
+                    -->
+                    <label>checkbox</label> - <input type="checkbox" name="terminos" checked/>
+                    <br>
+
+                    <!-- COLOR 
+                    "value"= es color que tiene por default cuando se cargue la pagina-->
+                    <label>color</label> - <input type="color" name="fondo" value="#3DC2C0"/>
+                    <br>
+
+                    <!-- TEXT
+                    "placeholder": Texto de fondo dentro del espacio donde se va a escribir
+                    "size": es el tamaño del cuadrado segun la cantidad de letras, pero no limita 
+                    la cantidad de letras.
+                    -->
+                    <label>texto</label> - <input type="text" name="nombre" 
+                                                  placeholder="Digite el nombre"
+                                                  size="50"
+                                                  />
+                    <br>
+                    <!-- TEXTAREA -->
+                    <label>textarea</label> - <textarea name="direccion"
+                                                        row="7"
+                                                        cols="5" disable="true"> Ejemplo de texto </textarea>
+
+                    <br>
+                    <!-- Otros atributos:  
+                    - "step="" ": Es para poder escoger en fragmentos de dias (e.i: si ponemos "2"
+                    Se va a escoger cada dos dias como si hoy es 10 la proxima opcion es el 12
+                    -->
+                    <label>date</label> - <input type="date" name="date" min="2021-01-01" max="2023-12-32"/>
+                    <br>
+                    <!-- DATETIME: PErmite seleccionar fecha y hora -->
+                    <label>datetime-local</label> - <input type="datetime-local" name="datetime-local" checked/>
+                    <br>
+                    <!-- TIME: Permite seleccionar hora y minutos -->
+                    <label>time</label> - <input type="time" name="time" checked/>
+                    <br>
+                    <!-- EMAIL:  -->
+                    <label>email</label> - <input type="email" name="correo" 
+                                                  placeholder="xxx@xxx.xxx"/>
+                    <br>
+                    <!-- FILE: Es para agregar archivos, hay que especificar que 
+                    tipos de archivos vamos a aceptar.-->
+                    <label>file</label> - <input type="file" name="file" 
+                                                 accept="image/pmg,image/jpeg"/>
+                    <br>
+                    <!-- HIDDEN: Para que los datos no sean visibles para el cliente.
+                    Para guardar codigos. -->
+                    <label>hidden</label> - <input type="hidden" id="hidden" 
+                                                   value="sdffr-werty-poidt"/>
+                    <br>
+                    <!-- SEARCH:  -->
+                    <label>search</label> - <input type="search" name="search" 
+                                                   placeholder=""/>
+                    <br>
+                    <!-- TEL:  -->
+                    <label>tel</label> - <input type="tel" name="tel" 
+                                                placeholder=""/>
+                    <br>
+                    <!-- URL: -->
+                    <label>url</label> - <input type="url" name="url" 
+                                                placeholder=""/>
+                    <br>
+                    <!-- WEEK: Seleccionar una semana y retorna el numero de semana-->
+                    <label>week</label> - <input type="week" name="week" 
+                                                 placeholder=""/>
+                    <br>
+                    <!-- Number: Seleccionar el mes-->
+                    <label>month</label> - <input type="month" name="month"/>
+
+                    <br>
+                    <!-- NUMBER: Para escoger un numero-->
+                    <label>number</label> - <input type="number" name="numero"/>
+                    <br>
+                    <!-- PASSWORD: De una vez oculta lo que uno escribe en el campo-->
+                    <label>password</label> - <input type="password" name="password"/>
+                    <br>
+                    <!-- Radio para seleccionar un lenguaje: en la etiqueta de "name"
+                    que todos los "labels" de tipo "radio" usen el mismo nombre. 
+                    Sino todo se va a marcar sin poder desmarcar porque no estan
+                    relacionadas.
+                    El "checked" es para que salga una opcion marcada por default
+                    El valor en "value" es el que se envia a la hora que hacemos el 
+                    submit -->
+                    <label>radio</label> - <input type="radio" name="lenguaje" value="1"/>
+                    <label>radio</label> - <input type="radio" name="lenguaje" value="2" checked/>
+                    <label>radio</label> - <input type="radio" name="lenguaje" value="3"/>
+
+                    <br>
+                    <!-- Permite escoger un valor entre un rango -->
+                    <label>range</label> - <input type="range" value="24" min="31"
+                                                  max="100" oninput="this.nextElementSibling.value = this.value"/>
+                    <output>24</output>
+                    <br>
+
+                    <!-- Limpiar el formulario-->
+                    <label> reset </label> - <input type="reset" name="reset" value="Limpiar"/>
+                    <br>
+
+                    <!-- Boton de submit -->
+                    <label> submit </label> - <input type="submit" value="Enviar"/>
+
+                </form>
+            </article>
+        </section>
+        <br/>
+        <footer> Derecho reservado &COPY; 2023 </footer>
+    </body>
+</html>
