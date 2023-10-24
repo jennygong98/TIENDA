@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.Data;
 
-@Data //Facilita el desarrollo de entidades para no crear los get/set.
+@Data //Facilita el desarrollo de entidades para no crear los get/set de los atributos.
 @Entity //Nos dice que esta clase "Categoria" se va a manejar como una entidad
 @Table(name = "categoria") //Especifica a que tabla se mapea la clase (BD)
 public class Categoria implements Serializable {
