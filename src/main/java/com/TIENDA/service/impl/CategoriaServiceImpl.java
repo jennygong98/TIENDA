@@ -40,4 +40,10 @@ public class CategoriaServiceImpl implements CategoriaService {
     public void delete(Categoria categoria) {
         categoriaDao.delete(categoria);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Categoria> getCategoriasPorDescripcion(String descripcion) {
+        return categoriaDao.findByDescripcionContainingIgnoreCase(descripcion);
+    }  
 }
