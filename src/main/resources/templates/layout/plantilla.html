@@ -50,22 +50,37 @@
                                 </ul>
                             </li>
                         </ul>
+
                         <ul class="navbar-nav" sec:authorize="!isAuthenticated()"> 
                             <li class="nav-item"> 
                                 <a th:hred="@{/login}" class="nav-link"> 
-                                    <i class="fa fa-sign-in-alt"> </i>
+                                    <i class="fa fa-sign-in-alt"></i>
                                 </a>
                             </li>
                         </ul> 
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()">
                             <li class="nav-item text-white my-auto" th:if="${#ctx.session.usuarioImagen !=null}">
                                 <img th:src="${#ctx.session.usuarioImagen}" height="40"/>
-                                <i class="fa fa-user mx-2"></i><span sec:authentication="name">Bob</span>
                             </li>
                             <li class = "nav-item text-white my-auto"> 
-                                <i class="fa fa-users mx-1"> </i><span sec:authentication="principal.authorities"> Roles </span>
+                                <i class="fa fa-users mx-1"> </i><span sec:authentication="name">Username</span>
                             </li>
                             <li class="nav-tem text-white my-auto">
+                                <i class="fa fa-users mx-1"></i> <span sec:authentication="principal.authorities">Roles</span>
+                            </li>
+                            <li class="nav-item text-white my-auto">
+                                <form method="POST" th:action="@{/logout}">
+                                    <button class="btn btn-dark">
+                                        <i class="fa fa-sign-out-alt"></i>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--                </li>
                                 <form method="POST" th:action="@{/logout}">
                                     <button class="btn btn-dark">
                                         <i class="fa fa-sign-out-alt"></i>
@@ -75,7 +90,7 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> -->
             <section id="main-header" class="py-2 bg-success text-white">
                 <div class="container">
                     <div class="row">

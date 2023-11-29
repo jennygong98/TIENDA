@@ -31,11 +31,11 @@ public class Usuario implements Serializable{
    @NotEmpty
    private String nombre;
    @NotEmpty
-   private String apellido;
+   private String apellidos;
    private String correo;
    private String telefono;
    private String rutaImagen;
-   private String activo;
+   private Boolean activo;
    
    @OneToMany
    @JoinColumn(name="id_usuario")

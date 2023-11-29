@@ -1,6 +1,5 @@
 package com.TIENDA;
 
-import com.TIENDA.service.UsuarioService;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -21,6 +20,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import com.TIENDA.service.UsuarioDetailsService;
 
 @Configuration
 public class ProjectConfig implements WebMvcConfigurer {
@@ -105,7 +105,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests((request) -> request
                 .requestMatchers("/", "/index", "/errores/**", "/error", "/error/***",
                         "/carrito/**", "/pruebas/**", "/reportes/**",
-                        "/registro/**", "/js/**", "/webjars/**")
+                        "/registro/**", "/js/**", "/webjars/**", "/refrescarBoton")
                 .permitAll()
                 .requestMatchers(
                         "/producto/nuevo", "/producto/guardar",

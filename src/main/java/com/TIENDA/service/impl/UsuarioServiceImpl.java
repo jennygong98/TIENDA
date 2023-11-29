@@ -1,58 +1,74 @@
 
 package com.TIENDA.service.impl;
 
+import com.TIENDA.dao.RolDao;
 import com.TIENDA.dao.UsuarioDao;
 import com.TIENDA.domain.Rol;
 import com.TIENDA.domain.Usuario;
 import com.TIENDA.service.UsuarioService;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service("UserDetailsService")
-public class UsuarioServiceImpl implements UsuarioService,UserDetailsService {
-    
+@Service
+public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuarioDao usuarioDao;
-    
     @Autowired
-    private HttpSession session;
-    
+    private RolDao rolDao;
+
     @Override
-    @Transactional (readOnly =true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //Buscarl el usuario por el username en la BD
-        Usuario usuario = usuarioDao.findByUsername(username);
-        
-        //si no existe el usuario lanza una excepcion
-        if (usuario == null) {
-            throw new UsernameNotFoundException(username);
-        }
-        //Si llegó hasta acá es porque el usuario existe en la BD
-        //Remover atributos de la sesion
-        session.removeAttribute("usuarioImgen");
-        session.setAttribute("usuarioImagen", usuario.getRutaImagen());
-        //Transformar roles a GrantedAuthority
-        var roles = new ArrayList<GrantedAuthority>();
-        for (Rol item: usuario.getRoles()) {
-          roles.add(new SimpleGrantedAuthority(item.getNombre()));      
-        }
-        //Se retorna el User (Clase UserDetails)
-        return new User(usuario.getUsername(),usuario.getPassword(),roles);
+    @Transactional(readOnly = true)
+    public List<Usuario> getUsuarios() {
+        return usuarioDao.findAll();
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Usuario getUsuario(Usuario usuario) {
+        return usuarioDao.findById(usuario.getIdUsuario()).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Usuario getUsuarioPorUsername(String username) {
         return usuarioDao.findByUsername(username);
     }
-    
-    
+
+    @Override
+    @Transactional(readOnly = true)
+    public Usuario getUsuarioPorUsernameYPassword(String username, String password) {
+        return usuarioDao.findByUsernameAndPassword(username, password);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Usuario getUsuarioPorUsernameOCorreo(String username, String correo) {
+        return usuarioDao.findByUsernameOrCorreo(username, correo);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existeUsuarioPorUsernameOCorreo(String username, String correo) {
+        return usuarioDao.existsByUsernameOrCorreo(username, correo);
+    }
+
+    @Override
+    @Transactional
+    public void save(Usuario usuario, boolean crearRolUser) {
+        usuario=usuarioDao.save(usuario);
+        if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
+            Rol rol = new Rol();
+            rol.setNombre("ROLE_USER");
+            rol.setIdUsuario(usuario.getIdUsuario());
+            rolDao.save(rol);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void delete(Usuario usuario) {
+        usuarioDao.delete(usuario);
+    }
 }

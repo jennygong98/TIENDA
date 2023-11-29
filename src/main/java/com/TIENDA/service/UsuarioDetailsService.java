@@ -2,10 +2,15 @@ package com.TIENDA.service;
 
 import com.TIENDA.domain.Usuario;
 import java.util.List;
+import org.springframework.security.core.userdetails.*;
 
-public interface UsuarioService {
-    
-    // Se obtiene un listado de usuarios en un List
+
+public interface UsuarioDetailsService {
+
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+
+
+     // Se obtiene un listado de usuarios en un List
     public List<Usuario> getUsuarios();
     
     // Se obtiene un Usuario, a partir del id de un usuario
@@ -28,5 +33,5 @@ public interface UsuarioService {
     public void save(Usuario usuario,boolean crearRolUser);
     
     // Se elimina el usuario que tiene el id pasado por parámetro
-    public void delete(Usuario usuario);   
+    public void delete(Usuario usuario);
 }
